@@ -5,9 +5,9 @@ const refs = {
   hours: document.querySelector('[data-value="hours"]'),
   mins: document.querySelector('[data-value="mins"]'),
   secs: document.querySelector('[data-value="secs"]'),
-  clockface: document.querySelector('#timer-1'),
+  // clockface: document.querySelector('#timer-1'),
 };
-// ==============================
+
 const timer = {
   intervalId: null,
   isActive: false,
@@ -31,7 +31,7 @@ const timer = {
 
   stop() {
     clearInterval(this.intervalId);
-    zeroTime();
+    // zeroTime();
     this.isActive = false;
   },
 };
@@ -51,12 +51,12 @@ function updateClockface({ days, hours, mins, secs }) {
   refs.secs.textContent = secs;
 }
 
-function zeroTime() {
-  refs.day.textContent = '00';
-  refs.hours.textContent = '00';
-  refs.mins.textContent = '00';
-  refs.secs.textContent = '00';
-}
+// function zeroTime() {
+//   refs.day.textContent = '00';
+//   refs.hours.textContent = '00';
+//   refs.mins.textContent = '00';
+//   refs.secs.textContent = '00';
+// }
 
 function pad(value) {
   return String(value).padStart(2, '0');
@@ -72,10 +72,3 @@ function getTimeComponents(time) {
 
   return { days, hours, mins, secs };
 }
-
-// ===================================
-// Плагин это класс CountdownTimer, экземпляр которого создает новый таймер с настройками.
-// new CountdownTimer({
-//   selector: '#timer-1',
-//   targetDate: new Date('Jan 31 2021 00:00:00'),
-// })
